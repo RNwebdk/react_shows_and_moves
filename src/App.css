@@ -1,0 +1,165 @@
+html {
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+body {
+  background: #e9ebee;
+}
+
+.navbar-brand {
+  color: #1ebc89;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+h5 {
+  font-size: 1.28571429em;
+  font-weight: 700;
+  line-height: 1.2857em;
+  margin: 0;
+}
+
+.card {
+  font-size: 1em;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  border-radius: 0.28571429rem;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  /*    min-height: 560px;*/
+}
+
+.card-block {
+  font-size: 1em;
+  position: relative;
+  margin: 0;
+  padding: 1em;
+  border: none;
+  border-top: 1px solid rgba(34, 36, 38, 0.1);
+  box-shadow: none;
+}
+
+.card-img-top {
+  display: block;
+  width: 100%;
+  max-height: 340px;
+}
+
+.card-title {
+  font-size: 1.28571429em;
+  font-weight: 700;
+  line-height: 1.2857em;
+}
+
+.card-text {
+  clear: both;
+  margin-top: 0.5em;
+  color: rgba(0, 0, 0, 0.68);
+}
+
+.card-text p {
+  white-space: nowrap;
+  width: 100%; /* IE6 needs any width */
+  overflow: hidden; /* "overflow" value must be different from  visible"*/
+  -o-text-overflow: ellipsis; /* Opera < 11*/
+  text-overflow: ellipsis; /* IE, Safari (WebKit), Opera >= 11, FF > 6 */
+}
+
+.card-footer {
+  font-size: 1em;
+  position: static;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  padding: 0.75em 1em;
+  color: rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+  background: #fff;
+}
+
+.card-inverse .btn {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.profile {
+  position: absolute;
+  top: -12px;
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.profile-avatar {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.profile-inline {
+  position: relative;
+  top: 0;
+  display: inline-block;
+}
+
+.profile-inline ~ .card-title {
+  display: inline-block;
+  margin-left: 4px;
+  vertical-align: top;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.meta {
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.meta a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.meta a:hover {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.favoriteButton {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #18bc9c;
+  padding: 5px;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+}
+
+.favoriteButton:hover {
+  background: #3c948b;
+  cursor: pointer;
+}
+
+.card-header {
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*right: 0;*/
+  background-color: #18bc9c;
+  padding: 5px;
+  text-align: center;
+  color: white;
+  font-size: 100%;
+}
+
+.empty {
+  text-align: center;
+  margin-top: 50px;
+}
