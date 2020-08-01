@@ -10,7 +10,7 @@ const ShowList = () => {
   return shows && shows.length ? (
     <div className='row mb-5' id='series'>
       {shows.map(({ show }) => (
-        <ShowCard show={show} />
+        <ShowCard show={show} key={show.id} />
       ))}
     </div>
   ) : (
