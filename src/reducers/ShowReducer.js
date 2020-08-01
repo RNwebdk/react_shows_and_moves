@@ -1,18 +1,30 @@
 export const showReducer = (state, action) => {
   switch (action.type) {
     case 'SEARCH_SHOWS':
+      console.log('SEARCH_SHOWS', action.payload);
       return {
         ...state,
-        shows: action.payload,
+        shows: action.payload
       };
     case 'ADD_SHOW':
       console.log('Adding show to localstorage');
-      return [
+      // return [
+      //   ...state,
+      //   {
+      //     // add something here
+      //   }
+      // ];
+
+      // YOU SHOULD BE RETURNING AN OBJECT FOR STATE AND THEN CREATING
+      // PROPERTIES INSIDE OF THAT OBJECT SO
+      return {
         ...state,
-        {
-          // add something here
-        },
-      ];
+        someArray: [
+          {
+            // some obejct
+          }
+        ]
+      };
 
     default:
       return state;

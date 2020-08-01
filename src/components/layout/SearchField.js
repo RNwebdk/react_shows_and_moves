@@ -3,28 +3,35 @@ import axios from 'axios';
 import { ShowContext } from '../../contexts/ShowContext';
 
 const SearchField = () => {
-  const { dispatch } = useContext(ShowContext);
+  const { searchShows } = useContext(ShowContext);
   const [searchText, setSearchText] = useState('');
   const [shows, setShows] = useState([]);
 
-  const submitSearch = async (e) => {
+  const submitSearch = async e => {
     e.preventDefault();
 
-    if (searchText !== '') {
-      // console.log(`http://api.tvmaze.com/search/shows?q=${searchText}`);
+    if (searchText === '') return;
 
-      const res = await axios.get(
-        `http://api.tvmaze.com/search/shows?q=${searchText}`
-      );
+    searchShows(searchText);
 
-      // setShows(res.data);
-      dispatch({ type: 'SEARCH_SHOWS', payload: res.data });
+    // SINCE WE'VE CREATED A CONTEXT TO HANDLE THIS, MOVE THIS API CALL
+    // INTO THE ACTION IN THE CONTEXT LIKE YOU WOULD WITH REDUX
 
-      console.log(shows);
-    } else {
-      //Clear
-      console.log('testfield empty, clear the results pleace');
-    }
+    // if (searchText !== '') {
+    //   // console.log(`http://api.tvmaze.com/search/shows?q=${searchText}`);
+
+    //   const res = await axios.get(`http://api.tvmaze.com/search/shows?q=${searchText}`);
+
+    //   console.log('res', res);
+
+    //   // setShows(res.data);
+    //   dispatch({ type: 'SEARCH_SHOWS', payload: res.data });
+
+    //   console.log(shows);
+    // } else {
+    //   //Clear
+    //   console.log('testfield empty, clear the results pleace');
+    // }
   };
 
   return (
@@ -41,16 +48,12 @@ const SearchField = () => {
           aria-label='SearchField'
           id='search'
           aria-describedby='basic-addon1'
-          onChange={(e) => setSearchText(e.target.value)}
+          onChange={e => setSearchText(e.target.value)}
           value={searchText}
         />
       </div>
       <div className='input-group'>
-        <input
-          type='submit'
-          className='form-control btn-block btn btn-primary'
-          value='Submit'
-        />
+        <input type='submit' className='form-control btn-block btn btn-primary' value='Submit' />
       </div>
     </form>
   );

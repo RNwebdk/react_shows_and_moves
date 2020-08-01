@@ -4,11 +4,13 @@ import ShowCard from './ShowCard';
 
 const ShowList = () => {
   const { shows } = useContext(ShowContext);
-  console.log(shows);
+
+  console.log('ShowList', shows);
+
   return shows && shows.length ? (
     <div className='row mb-5' id='series'>
-      {shows.map((show) => (
-        <ShowCard />
+      {shows.map(({ show }) => (
+        <ShowCard show={show} />
       ))}
     </div>
   ) : (
