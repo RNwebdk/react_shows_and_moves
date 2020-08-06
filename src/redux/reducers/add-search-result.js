@@ -7,7 +7,7 @@ export default function addSearchResultReducer(state = initialState, action) {
   switch (action.type) {
     case SEARCH_SHOW:
       const newState = [];
-      return { ...newState, ...action.payload };
+      return [...action.payload];
 
     default:
       return state;
