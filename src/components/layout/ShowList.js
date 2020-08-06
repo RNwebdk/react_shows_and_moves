@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { render } from "@testing-library/react";
 
 const ShowList = () => {
-  const [searchResult, setSearchResult] = useState({});
+  const [searchResult, setSearchResult] = useState([]);
 
   // @ts-ignore
   const dataFromRedux = useSelector((state) => state.addSearchResultReducer);
@@ -22,11 +22,10 @@ const ShowList = () => {
 
   return (
     <React.Fragment>
-      {/* {searchResult && searchResult.length > 0 ? ( */}
-      {dataFromRedux && dataFromRedux.length > 0 ? (
+      {searchResult && searchResult.length > 0 ? (
         <div className='row mb-5' id='series'>
           {searchResult.map((show) => (
-            <ShowCard key={show.show.id} show={show} />
+            <ShowCard key={show.show.id} {...show.show} />
           ))}
         </div>
       ) : (
