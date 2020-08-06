@@ -24,9 +24,12 @@ const SearchField = () => {
       // setShows(res.data);
       dispatch({ type: "SEARCH_SHOWS", payload: res.data });
 
-      if (res.data && res.data.length > 0) {
-        console.log("got data from api");
-        dispatchToRedux(addSearchResult(res.data));
+      if (res.data) {
+        if (res.data.length > 0) {
+          dispatchToRedux(addSearchResult(res.data));
+        } else {
+          dispatchToRedux(addSearchResult([]));
+        }
       }
     } else {
       //Clear
