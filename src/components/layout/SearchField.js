@@ -1,29 +1,37 @@
-import React, { useState, useContext } from 'react';
-import axios from 'axios';
-import { ShowContext } from '../../contexts/ShowContext';
+import React, { useState, useContext } from "react";
+import axios from "axios";
+import { ShowContext } from "../../contexts/ShowContext";
+import { useDispatch } from "react-redux";
+import { addSearchResult } from "../../redux/actions/add-search-result-action";
 
 const SearchField = () => {
   const { dispatch } = useContext(ShowContext);
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
   const [shows, setShows] = useState([]);
+
+  const dispatchToRedux = useDispatch();
 
   const submitSearch = async (e) => {
     e.preventDefault();
 
-    if (searchText !== '') {
+    if (searchText !== "") {
       // console.log(`http://api.tvmaze.com/search/shows?q=${searchText}`);
 
-      const res = await axios.get(
-        `http://api.tvmaze.com/search/shows?q=${searchText}`
-      );
+      const res = await axios
+        .get(`http://api.tvmaze.com/search/shows?q=${searchText}`)
+        .catch((err) => console.error(err));
 
       // setShows(res.data);
-      dispatch({ type: 'SEARCH_SHOWS', payload: res.data });
+      dispatch({ type: "SEARCH_SHOWS", payload: res.data });
+
+      if (res.data) {
+        dispatchToRedux(addSearchResult(res.data));
+      }
 
       console.log(shows);
     } else {
       //Clear
-      console.log('testfield empty, clear the results pleace');
+      console.log("testfield empty, clear the results pleace");
     }
   };
 
